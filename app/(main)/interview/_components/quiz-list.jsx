@@ -53,7 +53,7 @@ export default function QuizList({ assessments }) {
                   <CardTitle className="gradient-title text-2xl">
                     Quiz {i + 1}
                   </CardTitle>
-                  <CardDescription className="flex justify-between w-full">
+                  <CardDescription className="flex justify-between w-full text-black/80 ">
                     <div>Score: {assessment.quizScore.toFixed(1)}%</div>
                     <div>
                       {format(
@@ -65,7 +65,7 @@ export default function QuizList({ assessments }) {
                 </CardHeader>
                 {assessment.improvementTip && (
                   <CardContent>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-black/80">
                       {assessment.improvementTip}
                     </p>
                   </CardContent>

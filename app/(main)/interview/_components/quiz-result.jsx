@@ -27,7 +27,7 @@ export default function QuizResult({
         {result.improvementTip && (
           <div className="bg-muted p-4 rounded-lg">
             <p className="font-medium">Improvement Tip:</p>
-            <p className="text-muted-foreground">{result.improvementTip}</p>
+            <p className="text-black/80">{result.improvementTip}</p>
           </div>
         )}
         <div className="space-y-4">
@@ -43,8 +43,8 @@ export default function QuizResult({
                 )}
               </div>
               <div className="text-sm text-muted-foreground">
-                <p>Your answer: {q.userAnswer}</p>
-                {!q.isCorrect && <p>Correct answer: {q.answer}</p>}
+                <p className="text-black/90">Your answer: {q.userAnswer}</p>
+                {!q.isCorrect && <p className="text-black/90">Correct answer: {q.answer}</p>}
               </div>
               <div className="text-sm bg-muted p-2 rounded">
                 <p className="font-medium">Explanation:</p>

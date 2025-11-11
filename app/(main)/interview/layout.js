@@ -5,7 +5,9 @@ export default function Layout({ children }) {
   return (
     <div className="px-5">
       <Suspense
-        fallback={<BarLoader className="mt-4 " width={"100%"} color="gray" />}
+        fallback={<div className="fixed top-16 min-w-full">
+            <BarLoader width="100%" color="green" style={{ marginLeft: 0 }}/>
+          </div>}
       >
         {children}
       </Suspense>

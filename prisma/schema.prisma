@@ -9,7 +9,7 @@ datasource db {
 
 model User {
   id            String    @id @default(uuid())
-  clerkUserId   String    @unique // clerk user id
+  clerkUserId   String    @unique 
   email         String    @unique
   name          String?
   imageUrl      String?
@@ -39,7 +39,7 @@ model Assessment {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
-  @@index([userId])
+  @@index([userId, createdAt(sort: Desc)])
 }
 
 model Resume {

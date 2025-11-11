@@ -178,7 +178,7 @@ export default function ResumeBuilder({ initialContent }) {
               </>
             ) : (
               <>
-                <Download className="h-4 w-4" />
+                <Download className="h-4 w-4 " />
                 Download PDF
               </>
             )}

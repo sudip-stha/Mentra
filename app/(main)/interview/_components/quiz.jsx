@@ -17,6 +17,9 @@ import QuizResult from "./quiz-result";
 import useFetch from "@/hooks/use-fetch";
 import { Loader2 } from "lucide-react";
 import { BarLoader } from "react-spinners";
+import ReactMarkdown from "react-markdown";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -35,6 +38,58 @@ export default function Quiz() {
     data: resultData,
     setData: setResultData,
   } = useFetch(saveQuizResult);
+
+  const MarkdownContent = ({ content }) => (
+  <ReactMarkdown
+    className="prose prose-sm max-w-none dark:prose-invert"
+    components={{
+      code({ node, inline, className, children, ...props }) {
+        const match = /language-(\w+)/.exec(className || "");
+        return !inline && match ? (
+          <div className="my-4">
+            <SyntaxHighlighter
+              style={vscDarkPlus}
+              language={match[1]}
+              PreTag="div"
+              customStyle={{
+                margin: 0,
+                borderRadius: "0.5rem",
+                fontSize: "0.875rem",
+                padding: "1rem",
+              }}
+              codeTagProps={{
+                style: {
+                  fontSize: "0.875rem",
+                  fontFamily: "monospace",
+                }
+              }}
+              {...props}
+            >
+              {String(children).replace(/\n$/, "")}
+            </SyntaxHighlighter>
+          </div>
+        ) : (
+          <code
+            className="bg-gray-800 text-gray-100 px-2 py-1 rounded text-sm font-mono"
+            style={{ whiteSpace: "pre-wrap", wordBreak: "break-word" }}
+            {...props}
+          >
+            {children}
+          </code>
+        );
+      },
+      p: ({ children }) => (
+        <p className="my-2 leading-relaxed">{children}</p>
+      ),
+      pre: ({ children }) => (
+        <div className="overflow-x-auto">{children}</div>
+      ),
+    }}
+  >
+    {content}
+  </ReactMarkdown>
+);
+
 
   useEffect(() => {
     if (quizData) {
@@ -86,7 +141,11 @@ export default function Quiz() {
   };
 
   if (generatingQuiz) {
-    return <BarLoader className="mt-4" width={"100%"} color="gray" />;
+    return (
+      <div className="fixed top-12 w-full ml-0">
+        <BarLoader width="100%" color="green" style={{ marginLeft: 0 }} />
+      </div>
+    );
   }
 
   if (resultData) {
@@ -128,7 +187,9 @@ export default function Quiz() {
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
-        <p className="text-lg font-medium">{question.question}</p>
+        <div className="text-lg font-medium">
+          <MarkdownContent content={question.question} />
+        </div>
         <RadioGroup
           onValueChange={handleAnswer}
           value={answers[currentQuestion]}
@@ -137,7 +198,9 @@ export default function Quiz() {
           {question.options.map((option, index) => (
             <div key={index} className="flex items-center space-x-2">
               <RadioGroupItem value={option} id={`option-${index}`} />
-              <Label htmlFor={`option-${index}`}>{option}</Label>
+              <Label htmlFor={`option-${index}`} className="cursor-pointer">
+                <MarkdownContent content={option} />
+              </Label>
             </div>
           ))}
         </RadioGroup>
@@ -145,7 +208,9 @@ export default function Quiz() {
         {showExplanation && (
           <div className="mt-4 p-4 bg-muted rounded-lg">
             <p className="font-medium">Explanation:</p>
-            <p className="text-muted-foreground">{question.explanation}</p>
+            <div className="text-muted-foreground">
+              <MarkdownContent content={question.explanation} />
+            </div>
           </div>
         )}
       </CardContent>
@@ -164,9 +229,7 @@ export default function Quiz() {
           disabled={!answers[currentQuestion] || savingResult}
           className="ml-auto"
         >
-          {savingResult && (
-            <Loader2 className="mt-2 h-4 w-4 animate-spin"  />
-          )}
+          {savingResult && <Loader2 className="mt-2 h-4 w-4 animate-spin" />}
           {currentQuestion < quizData.length - 1
             ? "Next Question"
             : "Finish Quiz"}

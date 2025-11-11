@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file://D%3A/FYP/mentra/app/%28auth%29/sign-up/%5B%5B...sign-up%5D%5D/page.jsx"],"sourcesContent":["import { SignUp } from \"@clerk/nextjs\";\r\n\r\nexport default function Page() {\r\n  return <SignUp appearance={{\r\n  elements: {\r\n    footer: { display: \"none\" },\r\n    logoBox: { display: \"none\" }\r\n  },\r\n  \r\n}}/>;\r\n}\r\n"],"names":[],"mappings":";;;;AAAA;;;AAEe,SAAS;IACtB,qBAAO,8OAAC,sLAAA,CAAA,SAAM;QAAC,YAAY;YAC3B,UAAU;gBACR,QAAQ;oBAAE,SAAS;gBAAO;gBAC1B,SAAS;oBAAE,SAAS;gBAAO;YAC7B;QAEF;;;;;;AACA"}},
+    {"offset": {"line": 32, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

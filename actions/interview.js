@@ -7,37 +7,42 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
-export async function generateQuiz() {
+async function getCurrentUser() {
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized");
 
   const user = await db.user.findUnique({
     where: { clerkUserId: userId },
-    select: {
-      industry: true,
-      skills: true,
-    },
   });
 
   if (!user) throw new Error("User not found");
+  return user;
+}
+
+export async function generateQuiz() {
+  const user = await getCurrentUser();
 
   const prompt = `
-    Generate 10 technical interview questions for a ${
-      user.industry
-    } professional${
+    Generate 10 technical interview questions for a ${user.industry} professional${
     user.skills?.length ? ` with expertise in ${user.skills.join(", ")}` : ""
   }.
     
     Each question should be multiple choice with 4 options.
+    Make questions relevant to ${user.industry} industry standards and practices.
     
-    Return the response in this JSON format only, no additional text, if the response contains any code block make sure to in include it in the question as string 
+    FORMATTING RULES:
+    - If a question requires showing code examples (common in tech/software roles), wrap code in triple backticks with the language name.
+    - For non-technical industries, use clear text without code blocks.
+    - Example with code: "What does this code return? \`\`\`javascript\nconst x = 5;\nconsole.log(x);\n\`\`\`"
+    
+    Return the response in this JSON format only, no additional text:
     {
       "questions": [
         {
-          "question": "string",
+          "question": "string (can contain code blocks if relevant to the industry)",
           "options": ["string", "string", "string", "string"],
           "correctAnswer": "string",
-          "explanation": "string"
+          "explanation": "string (can contain code blocks if relevant)"
         }
       ]
     }
@@ -58,14 +63,7 @@ export async function generateQuiz() {
 }
 
 export async function saveQuizResult(questions, answers, score) {
-  const { userId } = await auth();
-  if (!userId) throw new Error("Unauthorized");
-
-  const user = await db.user.findUnique({
-    where: { clerkUserId: userId },
-  });
-
-  if (!user) throw new Error("User not found");
+  const user = await getCurrentUser();
 
   const questionResults = questions.map((q, index) => ({
     question: q.question,
@@ -75,7 +73,6 @@ export async function saveQuizResult(questions, answers, score) {
     explanation: q.explanation,
   }));
 
-  // Get wrong answers
   const wrongAnswers = questionResults.filter((q) => !q.isCorrect);
 
   let improvementTip = null;
@@ -100,7 +97,6 @@ export async function saveQuizResult(questions, answers, score) {
 
     try {
       const tipResult = await model.generateContent(improvementPrompt);
-
       improvementTip = tipResult.response.text().trim();
       console.log(improvementTip);
     } catch (error) {
@@ -127,14 +123,7 @@ export async function saveQuizResult(questions, answers, score) {
 }
 
 export async function getAssessments() {
-  const { userId } = await auth();
-  if (!userId) throw new Error("Unauthorized");
-
-  const user = await db.user.findUnique({
-    where: { clerkUserId: userId },
-  });
-
-  if (!user) throw new Error("User not found");
+  const user = await getCurrentUser();
 
   try {
     const assessments = await db.assessment.findMany({
@@ -142,7 +131,7 @@ export async function getAssessments() {
         userId: user.id,
       },
       orderBy: {
-        createdAt: "asc",
+        createdAt: "desc", 
       },
     });
 
