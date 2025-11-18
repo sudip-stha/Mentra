@@ -732,12 +732,7 @@ function Quiz() {
                         fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
                         lineNumber: 49,
                         columnNumber: 11
-                    }, void 0) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
-                        className: "bg-gray-800 text-gray-100 px-2 py-1 rounded text-sm font-mono",
-                        style: {
-                            whiteSpace: "pre-wrap",
-                            wordBreak: "break-word"
-                        },
+                    }, void 0) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         ...props,
                         children: children
                     }, void 0, false, {
@@ -751,7 +746,7 @@ function Quiz() {
                         children: children
                     }, void 0, false, {
                         fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                        lineNumber: 82,
+                        lineNumber: 76,
                         columnNumber: 9
                     }, void 0),
                 pre: ({ children })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -759,9 +754,15 @@ function Quiz() {
                         children: children
                     }, void 0, false, {
                         fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                        lineNumber: 85,
+                        lineNumber: 79,
                         columnNumber: 9
-                    }, void 0)
+                    }, void 0),
+                strong: ({ children })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                        children: children
+                    }, void 0, false),
+                em: ({ children })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                        children: children
+                    }, void 0, false)
             },
             children: content
         }, void 0, false, {
@@ -829,12 +830,12 @@ function Quiz() {
                 }
             }, void 0, false, {
                 fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                lineNumber: 146,
+                lineNumber: 141,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-            lineNumber: 145,
+            lineNumber: 140,
             columnNumber: 7
         }, this);
     }
@@ -846,12 +847,12 @@ function Quiz() {
                 onStartNew: startNewQuiz
             }, void 0, false, {
                 fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                lineNumber: 154,
+                lineNumber: 149,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-            lineNumber: 153,
+            lineNumber: 148,
             columnNumber: 7
         }, this);
     }
@@ -864,12 +865,12 @@ function Quiz() {
                         children: "Ready to test your knowledge?"
                     }, void 0, false, {
                         fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                        lineNumber: 163,
+                        lineNumber: 158,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                    lineNumber: 162,
+                    lineNumber: 157,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -878,12 +879,12 @@ function Quiz() {
                         children: "This quiz contains 10 questions specific to your industry and skills. Take your time and choose the best answer for each question."
                     }, void 0, false, {
                         fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                        lineNumber: 166,
+                        lineNumber: 161,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                    lineNumber: 165,
+                    lineNumber: 160,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardFooter"], {
@@ -893,18 +894,18 @@ function Quiz() {
                         children: "Start Quiz"
                     }, void 0, false, {
                         fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                        lineNumber: 172,
+                        lineNumber: 167,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                    lineNumber: 171,
+                    lineNumber: 166,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-            lineNumber: 161,
+            lineNumber: 156,
             columnNumber: 7
         }, this);
     }
@@ -922,12 +923,12 @@ function Quiz() {
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                    lineNumber: 185,
+                    lineNumber: 180,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                lineNumber: 184,
+                lineNumber: 179,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -939,12 +940,12 @@ function Quiz() {
                             content: question.question
                         }, void 0, false, {
                             fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                            lineNumber: 191,
+                            lineNumber: 186,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                        lineNumber: 190,
+                        lineNumber: 185,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$radio$2d$group$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RadioGroup"], {
@@ -959,7 +960,7 @@ function Quiz() {
                                         id: `option-${index}`
                                     }, void 0, false, {
                                         fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                                        lineNumber: 200,
+                                        lineNumber: 195,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
@@ -969,23 +970,23 @@ function Quiz() {
                                             content: option
                                         }, void 0, false, {
                                             fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                                            lineNumber: 202,
+                                            lineNumber: 197,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                                        lineNumber: 201,
+                                        lineNumber: 196,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, index, true, {
                                 fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                                lineNumber: 199,
+                                lineNumber: 194,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                        lineNumber: 193,
+                        lineNumber: 188,
                         columnNumber: 9
                     }, this),
                     showExplanation && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -996,7 +997,7 @@ function Quiz() {
                                 children: "Explanation:"
                             }, void 0, false, {
                                 fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                                lineNumber: 210,
+                                lineNumber: 205,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1005,24 +1006,24 @@ function Quiz() {
                                     content: question.explanation
                                 }, void 0, false, {
                                     fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                                    lineNumber: 212,
+                                    lineNumber: 207,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                                lineNumber: 211,
+                                lineNumber: 206,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                        lineNumber: 209,
+                        lineNumber: 204,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                lineNumber: 189,
+                lineNumber: 184,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardFooter"], {
@@ -1035,7 +1036,7 @@ function Quiz() {
                         children: "Show Explanation"
                     }, void 0, false, {
                         fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                        lineNumber: 219,
+                        lineNumber: 214,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1047,26 +1048,26 @@ function Quiz() {
                                 className: "mt-2 h-4 w-4 animate-spin"
                             }, void 0, false, {
                                 fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                                lineNumber: 232,
+                                lineNumber: 227,
                                 columnNumber: 28
                             }, this),
                             currentQuestion < quizData.length - 1 ? "Next Question" : "Finish Quiz"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                        lineNumber: 227,
+                        lineNumber: 222,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-                lineNumber: 217,
+                lineNumber: 212,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/(main)/interview/_components/quiz.jsx",
-        lineNumber: 183,
+        lineNumber: 178,
         columnNumber: 5
     }, this);
 }

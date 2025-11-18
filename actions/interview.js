@@ -23,12 +23,16 @@ export async function generateQuiz() {
   const user = await getCurrentUser();
 
   const prompt = `
-    Generate 10 technical interview questions for a ${user.industry} professional${
+    Generate 10 technical interview questions for a ${
+      user.industry
+    } professional${
     user.skills?.length ? ` with expertise in ${user.skills.join(", ")}` : ""
   }.
     
     Each question should be multiple choice with 4 options.
-    Make questions relevant to ${user.industry} industry standards and practices.
+    Make questions relevant to ${
+      user.industry
+    } industry standards and practices.
     
     FORMATTING RULES:
     - If a question requires showing code examples (common in tech/software roles), wrap code in triple backticks with the language name.
@@ -131,7 +135,7 @@ export async function getAssessments() {
         userId: user.id,
       },
       orderBy: {
-        createdAt: "desc", 
+        createdAt: "desc",
       },
     });
 

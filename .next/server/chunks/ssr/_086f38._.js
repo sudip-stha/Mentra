@@ -22,7 +22,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$n
 ;
 const genAI = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$google$2f$generative$2d$ai$2f$dist$2f$index$2e$mjs__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["GoogleGenerativeAI"](process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({
-    model: "gemini-2.5-flash"
+    model: "gemini-2.5-flash-lite"
 });
 const /*#__TURBOPACK_DISABLE_EXPORT_MERGING__*/ generateAIInsights = async (industry)=>{
     const prompt = `
@@ -62,7 +62,6 @@ async function /*#__TURBOPACK_DISABLE_EXPORT_MERGING__*/ getIndustryInsights() {
         }
     });
     if (!user) throw new Error("User not found");
-    // If no insights exist, generate them
     if (!user.industryInsight) {
         const insights = await generateAIInsights(user.industry);
         const industryInsight = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["db"].industryInsight.create({
@@ -242,9 +241,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$actions$2f$dashboard$2e$js__
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$main$292f$dashboard$2f$_component$2f$dashboard$2d$view$2e$jsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/app/(main)/dashboard/_component/dashboard-view.jsx [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$actions$2f$user$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/actions/user.js [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$api$2f$navigation$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$module__evaluation$3e$__ = __turbopack_import__("[project]/node_modules/next/dist/api/navigation.react-server.js [app-rsc] (ecmascript) <module evaluation>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$nav$2e$jsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/nav.jsx [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$components$2f$navigation$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/client/components/navigation.react-server.js [app-rsc] (ecmascript)");
-;
 ;
 ;
 ;
@@ -264,20 +261,20 @@ async function DashboardPage() {
                 children: "Industry Insights"
             }, void 0, false, {
                 fileName: "[project]/app/(main)/dashboard/page.jsx",
-                lineNumber: 20,
+                lineNumber: 19,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f28$main$292f$dashboard$2f$_component$2f$dashboard$2d$view$2e$jsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                 insights: insights
             }, void 0, false, {
                 fileName: "[project]/app/(main)/dashboard/page.jsx",
-                lineNumber: 21,
+                lineNumber: 20,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/(main)/dashboard/page.jsx",
-        lineNumber: 17,
+        lineNumber: 16,
         columnNumber: 5
     }, this);
 }

@@ -17,27 +17,23 @@ export const metadata = {
 export default function RootLayout({ children }) {
   const year = new Date().getFullYear();
   return (
-    <ClerkProvider
-    >
+    <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <head>
           <link rel="icon" href="/logo.png" sizes="any" />
-           
         </head>
         <body className={`${inter.className} bg-color `}>
-           <ThemeProvider
+          <ThemeProvider
             attribute="class"
             defaultTheme="Light"
             enableSystem
             disableTransitionOnChange
           >
-          
             <Header />
             <NavBar />
             <main className="min-h-screen">{children}</main>
             <Toaster richColors />
-
-            </ThemeProvider>
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

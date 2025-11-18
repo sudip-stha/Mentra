@@ -240,7 +240,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$jsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/card.jsx [app-rsc] (ecmascript)");
 ;
 ;
-;
 function StatsCards({ assessments }) {
     const getAverageScore = ()=>{
         if (!assessments?.length) return 0;

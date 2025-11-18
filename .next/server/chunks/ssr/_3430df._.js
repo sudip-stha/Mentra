@@ -162,19 +162,19 @@ const genAI = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2
 const model = genAI.getGenerativeModel({
     model: "gemini-2.5-flash"
 });
-async function /*#__TURBOPACK_DISABLE_EXPORT_MERGING__*/ generateQuiz() {
+async function getCurrentUser() {
     const { userId } = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$nextjs$2f$dist$2f$esm$2f$app$2d$router$2f$server$2f$auth$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["auth"])();
     if (!userId) throw new Error("Unauthorized");
     const user = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["db"].user.findUnique({
         where: {
             clerkUserId: userId
-        },
-        select: {
-            industry: true,
-            skills: true
         }
     });
     if (!user) throw new Error("User not found");
+    return user;
+}
+async function /*#__TURBOPACK_DISABLE_EXPORT_MERGING__*/ generateQuiz() {
+    const user = await getCurrentUser();
     const prompt = `
     Generate 10 technical interview questions for a ${user.industry} professional${user.skills?.length ? ` with expertise in ${user.skills.join(", ")}` : ""}.
     
@@ -211,14 +211,7 @@ async function /*#__TURBOPACK_DISABLE_EXPORT_MERGING__*/ generateQuiz() {
     }
 }
 async function /*#__TURBOPACK_DISABLE_EXPORT_MERGING__*/ saveQuizResult(questions, answers, score) {
-    const { userId } = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$nextjs$2f$dist$2f$esm$2f$app$2d$router$2f$server$2f$auth$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["auth"])();
-    if (!userId) throw new Error("Unauthorized");
-    const user = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["db"].user.findUnique({
-        where: {
-            clerkUserId: userId
-        }
-    });
-    if (!user) throw new Error("User not found");
+    const user = await getCurrentUser();
     const questionResults = questions.map((q, index)=>({
             question: q.question,
             answer: q.correctAnswer,
@@ -226,7 +219,6 @@ async function /*#__TURBOPACK_DISABLE_EXPORT_MERGING__*/ saveQuizResult(question
             isCorrect: q.correctAnswer === answers[index],
             explanation: q.explanation
         }));
-    // Get wrong answers
     const wrongAnswers = questionResults.filter((q)=>!q.isCorrect);
     let improvementTip = null;
     if (wrongAnswers.length > 0) {
@@ -266,21 +258,14 @@ async function /*#__TURBOPACK_DISABLE_EXPORT_MERGING__*/ saveQuizResult(question
     }
 }
 async function /*#__TURBOPACK_DISABLE_EXPORT_MERGING__*/ getAssessments() {
-    const { userId } = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$nextjs$2f$dist$2f$esm$2f$app$2d$router$2f$server$2f$auth$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["auth"])();
-    if (!userId) throw new Error("Unauthorized");
-    const user = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["db"].user.findUnique({
-        where: {
-            clerkUserId: userId
-        }
-    });
-    if (!user) throw new Error("User not found");
+    const user = await getCurrentUser();
     try {
         const assessments = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$prisma$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["db"].assessment.findMany({
             where: {
                 userId: user.id
             },
             orderBy: {
-                createdAt: "asc"
+                createdAt: "desc"
             }
         });
         return assessments;

@@ -1,9 +1,4 @@
 {
   "/page": "app/page.js",
-  "/(main)/interview/page": "app/(main)/interview/page.js",
-  "/(main)/dashboard/page": "app/(main)/dashboard/page.js",
-  "/(main)/ai-cover-letter/page": "app/(main)/ai-cover-letter/page.js",
-  "/(main)/resume/page": "app/(main)/resume/page.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/(main)/dashboard/page": "app/(main)/dashboard/page.js"
 }

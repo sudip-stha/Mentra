@@ -21,7 +21,6 @@ model User {
   bio           String?
   experience    Int?      
   
-  // Relations
   skills        String[]  
   assessments   Assessment[]
   resume        Resume?
@@ -39,7 +38,7 @@ model Assessment {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
-  @@index([userId, createdAt(sort: Desc)])
+  @@index([userId, createdAt(sort: Asc)])
 }
 
 model Resume {
@@ -74,10 +73,10 @@ model IndustryInsight {
 
   salaryRanges  Json[]   
   growthRate    Float    
-  demandLevel   String    // "High", "Medium", "Low"
+  demandLevel   String    
   topSkills     String[]  
   
-  marketOutlook String    // "Positive", "Neutral", "Negative"
+  marketOutlook String    
   keyTrends     String[]  
   
   recommendedSkills String[]  

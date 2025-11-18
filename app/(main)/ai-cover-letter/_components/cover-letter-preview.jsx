@@ -1,12 +1,26 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import MDEditor from "@uiw/react-md-editor";
 
-const CoverLetterPreview = ({ content }) => {
+const CoverLetterPreview = ({ content, onContentChange }) => {
+  const [editableContent, setEditableContent] = useState(content);
+
+  const handleChange = (value) => {
+    setEditableContent(value || '');
+    if (onContentChange) {
+      onContentChange(value || '');
+    }
+  };
+
   return (
     <div className="py-4">
-      <MDEditor value={content} preview="preview" height={700} />
+      <MDEditor 
+        value={editableContent} 
+        onChange={handleChange}
+        preview="edit"
+        height={700} 
+      />
     </div>
   );
 };

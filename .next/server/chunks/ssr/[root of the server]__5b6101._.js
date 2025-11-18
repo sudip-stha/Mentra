@@ -94,21 +94,29 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$uiw$2f$rea
 ;
 ;
 ;
-const CoverLetterPreview = ({ content })=>{
+const CoverLetterPreview = ({ content, onContentChange })=>{
+    const [editableContent, setEditableContent] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(content);
+    const handleChange = (value)=>{
+        setEditableContent(value || '');
+        if (onContentChange) {
+            onContentChange(value || '');
+        }
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "py-4",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$uiw$2f$react$2d$md$2d$editor$2f$esm$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"], {
-            value: content,
-            preview: "preview",
+            value: editableContent,
+            onChange: handleChange,
+            preview: "edit",
             height: 700
         }, void 0, false, {
             fileName: "[project]/app/(main)/ai-cover-letter/_components/cover-letter-preview.jsx",
-            lineNumber: 9,
+            lineNumber: 18,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/(main)/ai-cover-letter/_components/cover-letter-preview.jsx",
-        lineNumber: 8,
+        lineNumber: 17,
         columnNumber: 5
     }, this);
 };

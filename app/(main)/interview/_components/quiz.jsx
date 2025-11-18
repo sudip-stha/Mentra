@@ -39,7 +39,7 @@ export default function Quiz() {
     setData: setResultData,
   } = useFetch(saveQuizResult);
 
-  const MarkdownContent = ({ content }) => (
+const MarkdownContent = ({ content }) => (
   <ReactMarkdown
     className="prose prose-sm max-w-none dark:prose-invert"
     components={{
@@ -69,13 +69,7 @@ export default function Quiz() {
             </SyntaxHighlighter>
           </div>
         ) : (
-          <code
-            className="bg-gray-800 text-gray-100 px-2 py-1 rounded text-sm font-mono"
-            style={{ whiteSpace: "pre-wrap", wordBreak: "break-word" }}
-            {...props}
-          >
-            {children}
-          </code>
+          <span {...props}>{children}</span>
         );
       },
       p: ({ children }) => (
@@ -84,12 +78,13 @@ export default function Quiz() {
       pre: ({ children }) => (
         <div className="overflow-x-auto">{children}</div>
       ),
+      strong: ({ children }) => <>{children}</>,
+      em: ({ children }) => <>{children}</>,
     }}
   >
     {content}
   </ReactMarkdown>
 );
-
 
   useEffect(() => {
     if (quizData) {
